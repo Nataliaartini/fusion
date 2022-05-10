@@ -24,6 +24,16 @@
     </div>
     <!-- Hero Area End -->
 
+    <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <strong>{{ message }}</strong>
+                </div>
+            {% endfor %}
+        {% endif %}
+
 
 </header>
 <!-- Header Area wrapper End -->
