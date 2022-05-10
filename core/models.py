@@ -27,8 +27,8 @@ class Product(BaseModel):
         ('lni-rocket', 'Foguete'),
     )
     product_name = models.CharField('Produto', max_length=100)
-    description = models.TextField('Descrição', blank=True)
-    icon = models.CharField('Ícone', max_length=12, choices=ICONE_CHOICES)
+    product_description = models.TextField('Descrição', blank=True)
+    product_icon = models.CharField('Ícone', max_length=12, choices=ICONE_CHOICES)
 
     class Meta:
         verbose_name = 'Produto'
@@ -66,3 +66,17 @@ class Team(BaseModel):
 
     def __str__(self):
         return self.member_name
+
+
+class Feature(BaseModel):
+    ICONE_CHOICES = (
+        ('lni-cog', 'Engrenagem'),
+        ('lni-stats-up', 'Crescimento'),
+        ('lni-users', 'Usuários'),
+        ('lni-layers', 'Design'),
+        ('lni-mobile', 'Mobile'),
+        ('lni-rocket', 'Foguete'),
+    )
+    feature_name = models.CharField('Recurso', max_length=100)
+    feature_description = models.TextField('Descrição', blank=True)
+    feature_icon = models.CharField('Ícone', max_length=12, choices=ICONE_CHOICES)
