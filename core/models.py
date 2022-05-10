@@ -1,5 +1,11 @@
+import uuid
 from django.db import models
 from stdimage.models import StdImageField
+
+def get_file_path(instance, filename):
+    ext = filename.split('.')[-1]
+    filename = f'{uuid.uuid4()}.{ext}'
+    return filename
 
 
 class BaseModel(models.Model):
@@ -47,4 +53,16 @@ class Team(BaseModel):
     member_name = models.CharField('Nome', max_length=50)
     member_role = models.ForeignKey('core.Role', verbose_name='Cargo', on_delete=models.CASCADE)
     member_bio = models.TextField('Biografia', blank=True, max_length=200)
-    member_photo = StdImageField('Foto', upload_to='team', variations={'thumbnail': (480, 480, True)})
+    member_photo = StdImageField('Foto', upload_to=get_file_path, variations={'thumbnail': (480, 480, True)})
+    facebook = models.CharField('Facebook', blank=True, default='#', max_length=100)
+    twitter = models.CharField('Twitter', blank=True, default='#', max_length=100)
+    linkedin = models.CharField('Linkedin', blank=True, default='#', max_length=100)
+    github = models.CharField('Github', blank=True, default='#', max_length=100)
+    instagram = models.CharField('Instagram', blank=True, default='#', max_length=100)
+
+    class Meta:
+        verbose_name = 'Membro'
+        verbose_name_plural = 'Membros'
+
+    def __str__(self):
+        return self.member_name
