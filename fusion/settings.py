@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-8ei61v^wp!oowx3-dq7nk_u+-ai4agvbmqdd*75eneoazu)!^c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -57,7 +57,7 @@ ROOT_URLCONF = 'fusion.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['template'],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'fusion.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-"""DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME':'postgres',
@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'fusion.wsgi.application'
         'HOST':'localhost',
         'PORT':'5432',
     }
-}"""
+}
 
 # DATABASES = {
 #     'default': dj_database_url.config()
