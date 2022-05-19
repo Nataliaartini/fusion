@@ -12,17 +12,17 @@ class GetFilePathTestCase(TestCase):
 
 class ProductTestCase(TestCase):
     def test_str(self):
-        product = baker.make('core.Product', name='Test Product')
+        product = baker.make('core.Product')
         self.assertEqual(str(product), product.product_name)
 
 
 class RoleTestCase(TestCase):
     def test_str(self):
-        role = baker.make('core.Role', name='Test Role')
+        role = baker.make('core.Role')
         self.assertEqual(str(role), role.role_name)
 
 
 class TeamTestCase(TestCase):
     def test_str(self):
-        team = baker.make('core.Team', name='Test Team')
+        team = baker.make('core.Team')
         self.assertEqual(str(team), team.member_name)
