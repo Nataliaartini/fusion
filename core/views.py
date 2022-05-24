@@ -14,14 +14,13 @@ class IndexView(FormView):
         context = super(IndexView, self).get_context_data(**kwargs)
         context['products'] = Product.objects.all() #a partir dessa chave estou iterando no products.html etc...
         context['members'] = Team.objects.all()
-        context['features'] = Feature.objects.all()
         return context
 
     def form_valid(self, form, *args, **kwargs):
         form.send_mail()
         messages.success(self.request, 'Mensagem enviada com sucesso!')
-        return super(IndexView, self).form_valid(form, *args, **kwargs)
+        return super(IndexView, self).form_valid(form)
 
     def form_invalid(self, form, *args, **kwargs):
         messages.error(self.request, 'Erro ao enviar mensagem!')
-        return super(IndexView, self).form_invalid(form, *args, **kwargs)
+        return super(IndexView, self).form_invalid(form)
